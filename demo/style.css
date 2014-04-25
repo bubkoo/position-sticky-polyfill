@@ -26,4 +26,8 @@ h2 {
     color: white;
     margin: 0;
     padding: 5px 10px;
+    z-index: 10;
+}
+h2.red{
+    background-color: rgba(218, 60, 46, .5);
 }

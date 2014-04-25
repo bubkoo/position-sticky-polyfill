@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sticky polyfill demo - sticky top</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="../sticky.js"></script>
+</head>
+<body>
+<h1>Sticky polyfill demo - sticky top</h1>
+
+<div style="height: 400px">scroll the document to run the demo.</div>
+<div class="foo">
+    <h2 id="stick1">Stick in the viewport</h2>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <h2 id="stick2" class="red">I'm in the middle of the viewport</h2>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+</div>
+<br>
+
+<div class="bar">
+    <h2 id="stick3">viewport A</h2>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+</div>
+<div class="foobar">
+    <h2 id="stick4">viewport B</h2>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+</div>
+<div class="foo">
+    <h2 id="stick5">viewport C</h2>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+</div>
+<div class="bar">
+    <h2 id="stick6">viewport D</h2>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+
+    <p>Pellentesque sit amet porttitor eget dolor morbi. Mi in nulla posuere sollicitudin aliquam ultrices. Proin sed
+        libero enim sed faucibus turpis in eu mi. Semper auctor neque vitae tempus quam pellentesque nec nam. Massa
+        vitae
+        tortor condimentum lacinia quis vel. Vulputate dignissim suspendisse in est ante in nibh mauris. Lectus mauris
+        ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing enim eu. Non pulvinar neque
+        laoreet suspendisse interdum consectetur libero. Integer quis auctor elit sed vulputate mi sit amet. Egestas
+        congue
+        quisque egestas diam in arcu. Enim neque volutpat ac tincidunt.
+    </p>
+</div>
+<div style="height: 3000px"></div>
+<script>
+    jQuery(function () {
+        sticky('#stick1', 15);
+//        sticky('#stick1', {top: 15}); // or
+        sticky('#stick2', {top: 15});
+        sticky('#stick3', {top: 15});
+        sticky('#stick4', {top: 15});
+        sticky('#stick5', {top: 15});
+        sticky('#stick6', {top: 15});
+    });
+</script>
+</body>
+</html>
