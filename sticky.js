@@ -30,19 +30,19 @@
 
         // get the sticky range
         if (top !== undefined) {
-            this.startY = int(offset.top - top);
-            this.endY = int(parent.offset().top
+            this.startY = round(offset.top - top);
+            this.endY = round(parent.offset().top
                 + parent.outerHeight() - int(parent.css('border-top-width')) - int(parent.css('border-bottom-width'))
                 - this.elem.outerHeight()
                 - (int(parent.css('padding-bottom')) + int(this.elem.css('margin-bottom')))
                 - top);
 
         } else if (bottom !== undefined) {
-            this.startY = int(parent.offset().top + int(parent.css('border-top-width'))
+            this.startY = round(parent.offset().top + int(parent.css('border-top-width'))
                 + int(parent.css('padding-top')) + int(this.elem.css('margin-top'))
                 + this.elem.outerHeight() + bottom
                 - $(window).height());
-            this.endY = int(offset.top + bottom + this.elem.outerHeight() - $(window).height());
+            this.endY = round(offset.top + bottom + this.elem.outerHeight() - $(window).height());
         }
     };
 
@@ -188,6 +188,10 @@
 
     function isObject(obj) {
         return typeof obj === 'object';
+    }
+
+    function round(value) {
+        return Math.round(value);
     }
 
     function int(value) {
