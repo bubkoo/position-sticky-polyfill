@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+    color: #444;
+    margin: 0 auto;
+    padding: 0 2%;
+    max-width: 600px;
+}
+
+.foo {
+    border: 1px solid #3FA9A4;
+    padding: 15px;
+}
+
+.bar {
+    border: 1px solid #FB4E77;
+    padding: 15px;
+}
+
+.foobar {
+    border: 1px solid #F2911B;
+    padding: 15px;
+}
+
+h2 {
+    background-color: rgba(19, 91, 147, .8);
+    color: white;
+    margin: 0;
+    padding: 5px 10px;
+}
