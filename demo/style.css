@@ -4,6 +4,8 @@ body {
     margin: 0 auto;
     padding: 0 2%;
     max-width: 600px;
+    _width: 600px;
+    _overflow: hidden;
 }
 
 .foo {
@@ -23,11 +25,18 @@ body {
 
 h2 {
     background-color: rgba(19, 91, 147, .8);
+    *background: #135B93;
+    *opacity: 0.8;
+    *filter: alpha(opacity=80);
     color: white;
     margin: 0;
     padding: 5px 10px;
     z-index: 10;
 }
-h2.red{
-    background-color: rgba(218, 60, 46, .5);
+
+h2.red {
+    background-color: rgba(218, 60, 46, 0.50);
+    *background: #DA3C2E;
+    *opacity: 0.8;
+    *filter: alpha(opacity=80);
 }

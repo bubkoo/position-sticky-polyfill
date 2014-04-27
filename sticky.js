@@ -17,6 +17,8 @@
         this.options = options || {};
         this.elem = $(this.options.element);
         this.position = this.options.position;
+        this.callback = options.callback || function () {
+        };
         this.stickyId = guid++;
     }
 
@@ -54,7 +56,7 @@
 
         if (isStickySupported) {
             this.natcveSticky();
-        } else {
+        } else{
             this.fixedSticky();
         }
 
@@ -74,6 +76,41 @@
             tmp += 'bottom: ' + this.position.bottom + 'px;';
         }
         this.elem[0].style.cssText += tmp;
+
+        var self = this;
+        var scrollCallback = function () {
+            var scrollTop = doc.scrollTop(),
+                top = self.position.top,
+                bottom = self.position.bottom;
+
+            if (top != undefined) { // sticky top
+                if (scrollTop > self.startY && scrollTop < self.endY) {
+                    self.startStick();
+                } else if (scrollTop <= self.startY) {
+                    self.stopStick();
+                } else if (scrollTop >= self.endY) {
+                    self.startStick();
+                }
+
+            } else if (bottom != undefined) { // sticky bottom
+
+                if (scrollTop > self.startY && scrollTop < self.endY) {
+                    self.startStick();
+                } else if (scrollTop >= self.endY) {
+                    self.stopStick();
+                } else if (scrollTop <= self.startY) {
+                    self.startStick();
+                }
+            }
+        };
+        $(window).on('scroll.sticky' + this.stickyId, function () {
+            scrollCallback.call(self);
+        });
+
+        $(window).on('resize.sticky' + this.stickyId, debounce(function () {
+            self.stopStick();
+            scrollCallback.call(self);
+        }, 120));
     };
 
     Sticky.prototype.fixedSticky = function () {
@@ -81,26 +118,29 @@
         this.ghost = this.elem.clone(true);
         var self = this;
 
+        if (!isFixedSupported) {
+            $('<style id="ie6-sticky" type="text/css"> * html{ background:url(null) no-repeat fixed; } </style>').appendTo('head');
+        }
+
         var scrollCallback = function () {
 
             var scrollTop = doc.scrollTop(),
-                top = this.position.top,
-                bottom = this.position.bottom;
+                top = self.position.top,
+                bottom = self.position.bottom;
 
             if (top != undefined) { // sticky top
                 if (scrollTop > self.startY && scrollTop < self.endY) {
                     self.startStick();
                     self.ghost.css({
-                        position: 'fixed',
+                        position: isFixedSupported ? 'fixed' : 'absolute',
                         width: self.originWidth,
-                        top: top
+                        top: isFixedSupported ? top : top + scrollTop
                     });
                 } else if (scrollTop <= self.startY) {
                     self.stopStick();
                 } else if (scrollTop >= self.endY) {
                     self.startStick();
                     self.ghost.offset({
-//                        left: self.originLeft,
                         top: self.endY + top
                     });
                 }
@@ -110,7 +150,7 @@
                 if (scrollTop > self.startY && scrollTop < self.endY) {
                     self.startStick();
                     self.ghost.css({
-                        position: 'fixed',
+                        position: isFixedSupported ? 'fixed' : 'absolute',
                         width: self.originWidth,
                         top: '',
                         bottom: bottom
@@ -138,29 +178,47 @@
             self.adjust();
             scrollCallback.call(self);
         }, 120));
+
+        scrollCallback(this);
     };
 
     Sticky.prototype.startStick = function () {
         if (!this.sticking) {
             this.sticking = true;
-            this.elem.css('visibility', 'hidden');
-            this.ghost.insertAfter(this.elem);
-            if (this.position.top != undefined) {
-                this.ghost.css('margin-top', 'auto');
+            if (!isStickySupported) {
+                this.elem.css('visibility', 'hidden');
+                this.ghost.insertAfter(this.elem);
+                if (this.position.top != undefined) {
+                    this.ghost.css('margin-top', 'auto');
+                }
             }
+            this.callback.call(this, true);
         }
     };
 
     Sticky.prototype.stopStick = function () {
         if (this.sticking) {
             this.sticking = false;
-            this.elem.css('visibility', 'visible');
-            this.ghost = this.ghost.detach();
+            if (!isStickySupported) {
+                this.elem.css('visibility', 'visible');
+                this.ghost = this.ghost.detach();
+            }
+            this.callback.call(this, false);
+        }
+    };
+
+    Sticky.prototype.destroy = function () {
+        this.stopStick();
+        this.elem.data('bind-sticked', false);
+        $(window).off('scroll.sticky' + this.stickyId);
+        $(window).off('resize.sticky' + this.stickyId);
+        if (!isFixedSupported && !isStickySupported) {
+            $('#ie6-sticky').remove();
         }
     };
 
 
-    function sticky(elem, position) {
+    function sticky(elem, position, callback) {
         if (!isObject(position)) {
             position = {
                 top: int(position)
@@ -173,7 +231,8 @@
 
         return (new Sticky({
             element: elem,
-            position: position
+            position: position,
+            callback: callback
         })).render();
 
     }
@@ -182,6 +241,9 @@
 
     // sticky.stick(elem, position)
     sticky.stick = sticky;
+
+    sticky.isFixedSupported = isFixedSupported;
+    sticky.isStickySupported = isStickySupported;
 
     // Helper
     // ----------------
