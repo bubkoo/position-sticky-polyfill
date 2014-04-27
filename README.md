@@ -1,10 +1,10 @@
 position-sticky-polyfill
 ========================
 
-- (c)bubkoo@163.com
+- © bubkoo@163.com
 - MIT License.
 
-## Usage
+### Usage
 
 Include the polyfill:
 
@@ -23,7 +23,7 @@ sticky('#my-element',{ bottom: 10 },callback);
 ```
 Note: callback is optional.
 
-## Browser Support
+### Browser Support
 
 - IE6+
 - Firefox
