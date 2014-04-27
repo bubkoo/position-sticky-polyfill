@@ -119,6 +119,8 @@
         var self = this;
 
         if (!isFixedSupported) {
+            // avoid floatImage Shake for IE6
+            // source from: https://github.com/lifesinger/lifesinger.github.com/blob/master/lab/2009/ie6sticked_position_v4.html
             $('<style id="ie6-sticky" type="text/css"> * html{ background:url(null) no-repeat fixed; } </style>').appendTo('head');
         }
 
