@@ -23,12 +23,13 @@
     }
 
     Sticky.prototype.adjust = function () {
-        this.originWidth = this.elem.width();
-
         var offset = this.elem.offset(),
             parent = this.elem.parent(),
             top = this.position.top,
             bottom = this.position.bottom;
+
+        this.originWidth = this.elem.width();
+        this.originLeft = offset.left;
 
         // get the sticky range
         if (top !== undefined) {
@@ -56,7 +57,7 @@
 
         if (isStickySupported) {
             this.natcveSticky();
-        } else{
+        } else {
             this.fixedSticky();
         }
 
@@ -136,6 +137,7 @@
                     self.ghost.css({
                         position: isFixedSupported ? 'fixed' : 'absolute',
                         width: self.originWidth,
+                        left: self.originLeft,
                         top: isFixedSupported ? top : top + scrollTop
                     });
                 } else if (scrollTop <= self.startY) {
@@ -143,6 +145,7 @@
                 } else if (scrollTop >= self.endY) {
                     self.startStick();
                     self.ghost.offset({
+                        left: self.originLeft,
                         top: self.endY + top
                     });
                 }
@@ -154,6 +157,7 @@
                     self.ghost.css({
                         position: isFixedSupported ? 'fixed' : 'absolute',
                         width: self.originWidth,
+                        left: self.originLeft,
                         top: '',
                         bottom: bottom
                     });
@@ -162,6 +166,7 @@
                 } else if (scrollTop <= self.startY) {
                     self.startStick();
                     self.ghost.css({
+                        left: self.originLeft,
                         bottom: ''
                     });
                     self.ghost.offset({
