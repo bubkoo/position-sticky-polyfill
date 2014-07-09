@@ -117,7 +117,11 @@
     Sticky.prototype.fixedSticky = function () {
         this.adjust();
         this.ghost = this.elem.clone(true);
-        var self = this;
+        var self = this,
+            id = this.elem.attr('id');
+        if (id) {
+            this.ghost.attr('id', id + '-sticky-polyfill-' + this.stickyId);
+        }
 
         if (!isFixedSupported) {
             // avoid floatImage Shake for IE6
